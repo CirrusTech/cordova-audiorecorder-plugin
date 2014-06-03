@@ -14,12 +14,12 @@ import android.os.Environment;
 public class AudioRecorder extends CordovaPlugin {
 
   private MediaRecorder myRecorder;
-  private String outputFile = null;
+  private String outputFile;
 
   @Override
   public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
-    //outputFile = Environment.getExternalStorageDirectory().
-    //         getAbsolutePath() + "/NSTURecording.m4a";
+    outputFile = Environment.getExternalStorageDirectory().
+        getAbsolutePath() + "/NSTURecording.m4a";
 
 
     // TODO here you could check if the action equals "record", to distinguish various API calls for you plugin
@@ -31,7 +31,7 @@ public class AudioRecorder extends CordovaPlugin {
     myRecorder.setAudioChannels(1);
     myRecorder.setAudioEncodingBitRate(32000);
     myRecorder.setOutputFile(outputFile);
-    System.out.println("eat a dick");
+    System.out.println("-------- audio recording plugin says hello ;)"); // TODO remove this line, or use proper logging
 
     try
     {
