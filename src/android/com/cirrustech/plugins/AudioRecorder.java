@@ -50,7 +50,7 @@ public class AudioRecorder extends CordovaPlugin {
         myRecorder.release();
 
         //Sets the callback type and sets the return to true to define successful.
-        callbackContext.success();
+        callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, outputFile));
         //return true;
       }
     };
