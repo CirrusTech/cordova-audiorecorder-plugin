@@ -17,7 +17,7 @@ public class AudioRecorder extends CordovaPlugin {
   private String outputFile;
 
   @Override
-  public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
+  public String execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
     outputFile = Environment.getExternalStorageDirectory().
         getAbsolutePath() + "/NSTURecording.m4a";
 
@@ -39,7 +39,7 @@ public class AudioRecorder extends CordovaPlugin {
     }
     catch (Exception e) {
       callbackContext.error(e.getMessage());
-      return false;
+      return "99";
     }
 
     CountDownTimer countDowntimer = new CountDownTimer(7000, 1000) {
@@ -57,7 +57,7 @@ public class AudioRecorder extends CordovaPlugin {
 
     countDowntimer.start();
 
-    return true;
+    return outputFile;
 
   }
 
