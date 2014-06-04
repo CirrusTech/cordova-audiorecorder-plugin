@@ -31,7 +31,6 @@ public class AudioRecorder extends CordovaPlugin {
     myRecorder.setAudioChannels(1);
     myRecorder.setAudioEncodingBitRate(32000);
     myRecorder.setOutputFile(outputFile);
-    System.out.println("-------- audio recording plugin says hello ;)"); // TODO remove this line, or use proper logging
 
     try
     {
