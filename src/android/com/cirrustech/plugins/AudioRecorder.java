@@ -38,7 +38,7 @@ public class AudioRecorder extends CordovaPlugin {
       myRecorder.prepare();
       myRecorder.start();
     }
-    catch (Exception e) {
+    catch (final Exception e) {
       cordova.getThreadPool().execute(new Runnable() {
           public void run() {
             callbackContext.error(e.getMessage());
