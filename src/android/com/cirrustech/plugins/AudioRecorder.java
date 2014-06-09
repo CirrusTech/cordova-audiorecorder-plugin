@@ -39,11 +39,7 @@ public class AudioRecorder extends CordovaPlugin {
       myRecorder.start();
     }
     catch (final Exception e) {
-      cordova.getThreadPool().execute(new Runnable() {
-          public void run() {
-            callbackContext.error(e.getMessage());
-          }
-      });
+      callbackContext.error(e.getMessage());
       return false;
     }
 
@@ -53,13 +49,7 @@ public class AudioRecorder extends CordovaPlugin {
       public void onFinish() {
         myRecorder.stop();
         myRecorder.release();
-        
-        cordova.getThreadPool().execute(new Runnable() {
-          public void run() {
-            //Sets the callback type and sets the return to true to define successful.
-            callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, outputFile));
-          }
-        });
+        callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, outputFile));
         //return true;
       }
     };
